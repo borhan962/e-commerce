@@ -1,13 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ecommerce.routemisr.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+    ],
   },
-  cacheComponents: true,
-  partialPrefetching: true,
-  reactCompiler: true,
   turbopack: {
     rules: {
       "*.css": {
@@ -16,6 +23,30 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/login',
+  //       destination: '/Login',
+  //       permanent: false,
+  //     },
+  //     {
+  //       source: '/register',
+  //       destination: '/Register',
+  //       permanent: false,
+  //     },
+  //     {
+  //       source: '/Cart',
+  //       destination: '/cart',
+  //       permanent: false,
+  //     },
+  //     {
+  //       source: '/products',
+  //       destination: '/Products',
+  //       permanent: false,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
